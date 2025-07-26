@@ -1,21 +1,23 @@
+// ملف sw.js بدون كاش نهائيًا
 self.addEventListener("install", function (e) {
+  // تثبيت بدون كاش
+  self.skipWaiting();
+});
+
+self.addEventListener("activate", function (e) {
+  // حذف كل الكاشات
   e.waitUntil(
-    caches.open("nursery-cache").then(function (cache) {
-      return cache.addAll([
-        "./",
-        "./index.html",
-        "./style.css",
-        "./MOJS/v mohamed.js",
-        "./validate.js"
-      ]);
-    })
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames.map(function (cache) {
+          return caches.delete(cache);
+        })
+      );
+    }).then(() => self.clients.claim())
   );
 });
 
 self.addEventListener("fetch", function (e) {
-  e.respondWith(
-    caches.match(e.request).then(function (response) {
-      return response || fetch(e.request);
-    })
-  );
+  // كل الطلبات تروح مباشرة للإنترنت
+  e.respondWith(fetch(e.request));
 });
