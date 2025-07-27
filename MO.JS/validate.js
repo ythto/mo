@@ -71,16 +71,16 @@ installBtn.addEventListener("click", () => {
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
     });
-function openPopup(imgSrc, name) {
-  document.getElementById("popupImg").src = imgSrc;
-  document.getElementById("popupName").textContent = name;
+function openPopup(src, name) {
   document.getElementById("popup").style.display = "flex";
-  document.body.style.overflow = "hidden"; // ❌ يمنع سكرول الصفحة
+  document.getElementById("popupImg").src = src;
+  document.getElementById("popupName").textContent = name;
+  document.body.style.overflow = "hidden"; // تمنع السكرول
 }
 
 function closePopup() {
   document.getElementById("popup").style.display = "none";
-  document.body.style.overflow = "auto"; // ✅ يرجع السكرول
+  document.body.style.overflow = "auto"; // ترجع السكرول بعد الإغلاق
 }
 
 const questions = [
