@@ -1,205 +1,199 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حلقة تحفيظ أبي بن كعب 📖</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>مقرأة أبيّ بن كعب</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css/style.css">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#ffc0cb">
 </head>
 <body>
-
 <header>
-  <div class="header-container">
-    <h1 class="logo">📖 حَلْقِهِ تَحْفَيظ أَبِي بْنِ كَعْبٍ</h1>
-
-    <div class="menu-toggle" id="menuToggle">☰</div>
-
-    <nav class="nav-links" id="navLinks">
-      <a href="#index">الرئيسية</a>
-      <a href="#students">الطلاب والخاتمون</a>
-      <a href="#gallery">أنشطتنا</a>
-    </nav>
-  </div>
+  <h1>📖 مقرأة أبيّ بن كعب</h1>
+  <nav>
+    <ul>
+      <li><a href="#about">عنّا</a></li>
+      <li><a href="#programs">البرامج</a></li>
+      <li><a href="#contact">تواصل</a></li>
+    </ul>
+  </nav>
 </header>
+<button id="installBtn" style="display: none;">📲 أضف الموقع إلى الشاشة الرئيسية</button>
+<!-- 🌀 Carousel دائري -->
+<div class="carousel">
+  <img id="carouselImage" src="https://via.placeholder.com/360x360/2c7a7b/ffffff?text=تلاوة+قرآنية" alt="سلايدر" />
+</div>
+<div class="carousel-buttons">
+  <button onclick="prevImage()">⏪</button>
+  <button onclick="nextImage()">⏩</button>
+</div>
 
-<section class="hero" id="index">
-  <div class="hero-text">
-    <h2>أهلًا بكم في حلقة تحفيظ أبي بن كعب</h2>
-    <p class="quran-verse">🌟 ﴿ وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ ﴾ <br><span></span></p>
-    <p>نُعلّم أبناءكم كتاب الله حفظًا وتدبرًا ❤️</p>
-    <!-- <a href="#" class="btn" onclick="openFormPopup()">سجل في حلقة التحفيظ</a>     فورم التسجيل-->
-    <a href="#" class="btn" id="installBtn">📲أضف الموقع</a>
-    <br>
-    <a href="#" class="btn">تواصل معنا</a>
-  </div>
+<section id="quran-virtue" class="fade-in">
+  <h2 class="section-title">🌟 فضل تعلم القرآن الكريم</h2>
+  <div class="virtue-box">
+    <h3>📜 آيات من القرآن الكريم:</h3>
+    <ul>
+      <li>﴿إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ﴾ [الإسراء: 9]</li>
+      <li>﴿نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ﴾ [الحجر: 9]</li>
+      <li>﴿وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا﴾ [المزمل: 4]</li>
+      <li>﴿وَقُرْآنًا فَرَقْنَاهُ لِتَقْرَأَهُ عَلَى النَّاسِ عَلَى مُكْثٍ﴾ [الإسراء: 106]</li>
+    </ul>
 
-  <!-- slider -->
-  <div class="hero-image slider-container">
-    <div class="slider" id="slider">
-      <img src="images/1.jpg" alt="القرآن الكريم" loading="lazy">
-      <img src="images/2.jpg" alt="تعليم الأطفال" loading="lazy">
-      <img src="images/3.jpg" alt="حلقة تحفيظ" loading="lazy">
-      <img src="images/4.jpg" alt="أنشطة قرآنية" loading="lazy">
-    </div>
-    <button class="prev" onclick="prevSlide()">‹</button>
-    <button class="next" onclick="nextSlide()">›</button>
-    <div class="dots" id="dots">
-      <span class="dot" onclick="goToSlide(0)"></span>
-      <span class="dot" onclick="goToSlide(1)"></span>
-      <span class="dot" onclick="goToSlide(2)"></span>
-      <span class="dot" onclick="goToSlide(3)"></span>
-    </div>
-  </div>
-  <!-- end slider -->
-</section>
-<section class="reminders">
-  <h2>📖 فضل حفظ القرآن الكريم</h2>
-  <div class="reminder-boxes">
-    <div class="reminder">
-      <p>🌿 قال ﷺ: <q>من قرأ القرآن وتعلمه وعمل به، أُلبس والداه تاجًا من نور، ضوؤه مثل ضوء الشمس، ويُكسى والداه حلتين لا تقوم بهما الدنيا</q></p>
-      <span>— رواه الحاكم وصححه الألباني</span>
-    </div>
-    <div class="reminder">
-      <p>🌿 قال تعالى: ﴿ بَلْ هُوَ آيَاتٌ بَيِّنَاتٌ فِي صُدُورِ الَّذِينَ أُوتُوا الْعِلْمَ ﴾</p>
-      <span>— سورة العنكبوت: 49</span>
-    </div>
-
-    <div class="reminder">
-      <p>🌿 قال ﷺ: <q>خيركم من تعلم القرآن وعلّمه</q></p>
-      <span>— رواه البخاري</span>
-    </div>
-
-    <div class="reminder">
-      <p>🌿 قال ﷺ: <q>يُقال لصاحب القرآن: اقرأ وارقَ ورتّل كما كنت ترتّل في الدنيا، فإن منزلتك عند آخر آية تقرؤها</q></p>
-      <span>— رواه أبو داود والترمذي</span>
-    </div>
-
-    <div class="reminder">
-      <p>🌿 قال ﷺ: <q>إن لله أهلين من الناس. قيل: من هم يا رسول الله؟ قال: أهل القرآن، هم أهل الله وخاصته</q></p>
-      <span>— رواه أحمد وابن ماجه</span>
-    </div>
-
+    <h3>🕋 أحاديث نبوية شريفة:</h3>
+    <ul>
+      <li>قال ﷺ: «خيركم من تعلم القرآن وعلّمه» – البخاري.</li>
+      <li>قال ﷺ: «اقرؤوا القرآن فإنه يأتي شفيعًا لأصحابه» – مسلم.</li>
+      <li>قال ﷺ: «الماهر بالقرآن مع السفرة الكرام البررة» – متفق عليه.</li>
+      <li>قال ﷺ: «يقال لصاحب القرآن اقرأ وارتق ورتل...» – الترمذي.</li>
+    </ul>
   </div>
 </section>
-<section class="daily-verse">
-  <h2>📖 آية اليوم</h2>
-  <p id="verse" class="quran-verse"></p>
+
+<section id="about" class="fade-in" style="text-align: center;" >
+  <h2>🕌 عن المقرأة</h2>
+  <p>مقرأتنا تهدف إلى تعليم وتحفيظ كتاب الله بأسلوب بسيط وفعّال، مع الاهتمام بالتجويد والمراجعة المنظمة.</p>
 </section>
 
-<section class="daily-question">
-  <h2>🧠 سؤال اليوم</h2>
-  <p id="question"></p>
+<section id="daily-question" class="fade-in">
+  <h2 class="section-title">❓ سؤال ديني اليوم</h2>
+  <div id="question-box">
+    <p id="question-text">جارٍ تحميل السؤال...</p>
+    <div id="answers"></div>
+    <p id="result-message"></p>
+  </div>
 </section>
 
-<section class="about">
-  <h2>📖 من نحن؟</h2>
-  <p>نحن <strong>حلقة تحفيظ أبي بن كعب</strong>، نهدف إلى بناء جيل حافظ لكتاب الله، فاهم لمعانيه، عامل بهديه. بإشراف معلمين متخصصين في تعليم القرآن الكريم وتربية الأبناء تربية إيمانية متزنة.</p>
+<section id="quran-encouragement" class="fade-in">
+  <h2 class="section-title">💡 آيات وأحاديث تشجع على تعليم القرآن</h2>
+  <div id="encouragement-box">
+    <p id="encouragement-text">جارٍ التحميل...</p>
+  </div>
 </section>
-<section class="goals">
-  <h2>🎯 أهداف الحلقة</h2>
+
+<section id="programs" class="fade-in">
+  <h2>📚 البرامج والخدمات</h2>
   <ul>
-    <li>تحفيظ القرآن الكريم بالتدبر والفهم</li>
-    <li>غرس حب القرآن في قلوب الأطفال</li>
-    <li>تنشئة جيل حافظ وعامل بكتاب الله</li>
-    <li>تطوير مستوى التلاوة والقراءة</li>
+    <li>🔹 حلقات حفظ القرآن</li>
+    <li>🔹 مراجعة أسبوعية</li>
+    <li>🔹 تدريب على التلاوة بالتجويد</li>
+    <li>🔹 برامج للصغار والكبار</li>
   </ul>
 </section>
 
+<section class="etiquette-section fade-in">
+  <h2>🧠 آداب تعليم القرآن للأطفال</h2>
+  <ul class="etiquette-list">
+    <li>✨ الإخلاص لله تعالى في التعليم والتعلم.</li>
+    <li>📖 البدء بالاستعاذة والبسملة قبل القراءة.</li>
+    <li>👐 تعليم الطفل احترام المصحف وتطهير اليد قبل مسّه.</li>
+    <li>👂 تعليمه الإنصات وعدم الانشغال أثناء التلاوة.</li>
+    <li>💬 تشجيعه على الحفظ بالتدرج والرفق وعدم التعنيف.</li>
+    <li>✅ الحرص على تصحيح التلاوة مع التشجيع لا التوبيخ.</li>
+    <li>⏳ التحلي بالصبر والاستمرار في التكرار والتعليم.</li>
+  </ul>
+</section>
 
-<!-- <section class="features">
-  <h2>مميزات حلقتنا</h2>
-  <div class="features-grid">
-    <div class="feature">
-      <img src="images/quran1.jpg" alt="أجواء إيمانية">
-      <p>أجواء إيمانية آمنة</p>
+<section id="weekly-schedule" class="fade-in schedule-section">
+  <h2 class="section-title">📅 الجدول الأسبوعي للمقرأة</h2>
+  <div class="schedule-table">
+    <div class="schedule-row schedule-header">
+      <div>اليوم</div>
+      <div>البرنامج</div>
+      <div>الوقت</div>
     </div>
-    <div class="feature">
-      <img src="images/quran1.jpg" alt="تحفيظ بإتقان">
-      <p>تحفيظ وتثبيت بإتقان</p>
+
+    <div class="schedule-row">
+      <div>الأحد</div>
+      <div>حلقة مراجعة للصغار</div>
+      <div>4:00 م - 5:00 م</div>
     </div>
-    <div class="feature">
-      <img src="images/quran1.jpg" alt="متابعة مستمرة">
-      <p>متابعة فردية وتقييم دوري</p>
+    <div class="schedule-row">
+      <div>الإثنين</div>
+      <div>تجويد وتثبيت حفظ للكبار</div>
+      <div>5:00 م - 6:30 م</div>
+    </div>
+    <div class="schedule-row">
+      <div>الثلاثاء</div>
+      <div>مراجعة عامة للصغار</div>
+      <div>4:00 م - 5:00 م</div>
+    </div>
+    <div class="schedule-row">
+      <div>الأربعاء</div>
+      <div>حصة استماع وتدبر</div>
+      <div>6:00 م - 7:00 م</div>
+    </div>
+    <div class="schedule-row">
+      <div>الخميس</div>
+      <div>حلقة اختبار حفظ</div>
+      <div>5:00 م - 6:00 م</div>
+    </div>
+    <div class="schedule-row">
+      <div>الجمعة</div>
+      <div>راحة / أنشطة إيمانية</div>
+      <div>—</div>
+    </div>
+    <div class="schedule-row">
+      <div>السبت</div>
+      <div>حفظ جديد للصغار والكبار</div>
+      <div>3:30 م - 5:00 م</div>
     </div>
   </div>
-</section> -->
-<section class="plan">
-  <h2>📅 خطة الحفظ والمراجعة</h2>
-  <p>نقسم القرآن إلى مراحل مناسبة لكل فئة عمرية، وتشمل:</p>
-  <ul>
-    <li>حفظ 3-5 آيات يوميًا</li>
-    <li>مراجعة أسبوعية للسور السابقة</li>
-    <li>اختبارات شهرية في الحفظ والإتقان</li>
-  </ul>
+
+  
+<section>
+  <h2 class="section-title">🎓 الطلاب المتفوقين</h2>
+  <div class="honors-gallery">
+    <div class="student" onclick="openPopup('images/kid1.jpg', 'أحمد علي')">
+      <img src="images/kid1.jpg" alt="طالب">
+      <p>أحمد علي</p>
+    </div>
+    <div class="student" onclick="openPopup('images/kid2.jpg', 'سارة محمد')">
+      <img src="images/kid2.jpg" alt="طالبة">
+      <p>سارة محمد</p>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">✖</span>
+      <img id="popupImg" src="" alt="">
+      <h3 id="popupName"></h3>
+    </div>
+  </div>
+
 </section>
-<section class="manners">
-  <h2>🌟 آداب طالب القرآن</h2>
-  <ul>
-    <li>الإخلاص لله في الحفظ والتلاوة</li>
-    <li>الجلوس بأدب واحترام للمعلم والقرآن</li>
-    <li>الحضور المنتظم وعدم الغياب</li>
-    <li>احترام الزملاء ومساعدتهم</li>
-    <li>التزام الهدوء وعدم التشويش</li>
-  </ul>
+
+<section class="honor-students">
+  <h2>🌟 الطلاب المميزون</h2>
+  <div class="students-grid">
+    <div class="student-card">
+      <img src="images/1.jpg" alt="أحمد ياسر">
+      <p>أحمد ياسر</p>
+    </div>
+    <div class="student-card">
+      <img src="images/2.jpg" alt="محمد طارق">
+      <p>محمد طارق</p>
+    </div>
+    <div class="student-card">
+      <img src="images/3.jpg" alt="خالد حامد">
+      <p>خالد حامد</p>
+    </div>
+    <!-- ضيف طلاب تانين بنفس الشكل -->
+  </div>
 </section>
-<section class="schedule">
-  <h2>📅 الجدول الأسبوعي</h2>
-  <table>
-    <tr>
-      <th>اليوم</th>
-      <th>النشاط</th>
-      <th>الوقت</th>
-    </tr>
-    <tr>
-      <td>الأحد</td>
-      <td>حفظ جديد</td>
-      <td>4:30 - 5:30</td>
-    </tr>
-    <tr>
-      <td>الإثنين</td>
-      <td>مراجعة قديم</td>
-      <td>4:30 - 5:30</td>
-    </tr>
-    <tr>
-      <td>الثلاثاء</td>
-      <td>حفظ جديد</td>
-      <td>4:30 - 5:30</td>
-    </tr>
-    <tr>
-      <td>الأربعاء</td>
-      <td>تجويد واستماع</td>
-      <td>4:30 - 5:30</td>
-    </tr>
-    <tr>
-      <td>الخميس</td>
-      <td>اختبار ومسابقة</td>
-      <td>4:30 - 6:00</td>
-    </tr>
-  </table>
-</section>
-<section class="downloads">
-  <h2>📥 تحميلات مفيدة</h2>
-  <ul>
-    <li><a href="files/plan.pdf" download>📘 خطة الحفظ الشهرية</a></li>
-    <li><a href="files/revision.pdf" download>📗 جدول المراجعة الأسبوعي</a></li>
-    <li><a href="files/etiquette.pdf" download>📙 آداب الحلقة (PDF)</a></li>
-  </ul>
-</section>
+
+
 <section class="testimonials">
   <h2>💬 آراء أولياء الأمور</h2>
-
   <div class="testimonial-card">
     <img src="images/download.png" alt="أم عبد الله">
     <div class="testimonial-text">
-      <p>"ماشاء الله تبارك الرحمن 
-ربنا يبارك فيك يا شيخ حسن ويجعل عملك خالص لوجه الله
-"</p>
+      <p>"ماشاء الله تبارك الرحمن ربنا يبارك فيك يا شيخ حسن ويجعل عملك خالصًا لوجه الله"</p>
       <span>Mahmoud Fahmi</span>
     </div>
   </div>
-
   <div class="testimonial-card">
     <img src="images/images.png" alt="أبو عمر">
     <div class="testimonial-text">
@@ -208,135 +202,30 @@
     </div>
   </div>
 </section>
-<!-- start gallery -->
-<!-- <div class="gallery-container" id="gallery">
-  <h2>📸 صور من الأنشطة</h2>
-  <div class="image-grid">
-    <img src="images/ن1.jpeg" alt="نشاط">
-    <img src="images/d2.jpeg" alt="نشاط">
-    <img src="images/d3.jpeg" alt="نشاط">
-    <img src="images/d2.jpeg" alt="نشاط">
-  </div> -->
-  <h2>🎥 فيديوهات الانشطه</h2>
-  <div class="video-grid">
-    <video controls>
-      <source src="videos/WhatsApp Video 2025-07-15 at 00.50.40_80981476.mp4" type="video/mp4">
-      المتصفح لا يدعم تشغيل الفيديو.
-    </video>
-    <video controls>
-      <source src="videos/WhatsApp Video 2025-07-15 at 00.51.29_353db1c5.mp4" type="video/mp4">
-      المتصفح لا يدعم تشغيل الفيديو.
-    </video>
-  </div>
-</div>
-<!-- end gallery -->
 
-<!-- start students -->
-<!-- <h2 class="section-title" id="students">👦 الطلاب الحاليون</h2>
-<div class="container">
-  <div class="card">
-    <img src="images/ناصر المضروب.jpg" alt="طالب" onclick="openImage(this.src)">
-    <h3>ناصر محمد</h3>
-    <p>الحفظ:سوره المدثر</p>
-  </div>
-  <div class="card">
-    <img src="images/kid2.jpg" alt="طالب" onclick="openImage(this.src)">
-    <h3>آمنة خالد</h3>
-    <p>الحفظ: من الفاتحة إلى النحل</p>
-  </div>
-</div> -->
-
-<div id="imageModal" class="image-modal">
-  <span class="close-btn" onclick="closeImage()">✖</span>
-  <img class="modal-content" id="modalImage">
-</div>
-
-<hr>
-
-<!-- <h2 class="section-title">🎓 الخاتمون</h2>
-<div class="container">
-  <div class="card">
-    <img src="images/quran1.jpg" alt="خاتم" onclick="openImage(this.src)">
-    <h3>سارة محمد</h3>
-    <p>تاريخ الختم: 2025-05-15</p>
-  </div>
-  <div class="card">
-    <img src="images/quran1.jpg" alt="خاتم" onclick="openImage(this.src)">
-    <h3>عبد الرحمن ياسر</h3>
-    <p>تاريخ الختم: 2024-12-28</p>
-  </div>
-</div> -->
-<section class="honors">
-  <h2>🏆 الطلاب المتفوقين</h2>
-    <div class="container">
-      <div class="card">
-        <img src="images/ناصر المضروب.jpg" alt="" onclick="openImage(this.src)">
-        <h3>ناصر</h3>
-        <p></p>
-      </div>
-      <div class="card">
-        <img src="images/kid1.jpg" alt="" onclick="openImage(this.src)">
-        <h3></h3>
-        <p></p>
-      </div>
-      <div class="card">
-        <img src="images/kid2.jpg" alt="" onclick="openImage(this.src)">
-        <h3></h3>
-        <p></p>
-      </div>
+<section id="contact" class="contact-section fade-in">
+  <h2>📬 تواصل معنا</h2>
+  <div class="contact-info">
+    <div class="contact-item">
+      <span>📞</span>
+      <p>واتساب: <a href="https://wa.me/201000000000" target="_blank">01000000000</a></p>
     </div>
-</section>
-<!-- end students -->
- <section class="faq">
-  <h2>❓ أسئلة شائعة</h2>
-  <p><strong>ما هو العمر المناسب للالتحاق؟</strong> من 5 سنوات فما فوق</p>
-  <p><strong>ما هي مواعيد الحلقة؟</strong> من بعد العصر إلى المغرب</p>
-</section>
-<button id="installBtn" style="display: none;">📲 أضف الموقع إلى الشاشة الرئيسية</button>
-<footer>
-  <p>© 2025 حلقة تحفيظ أبي بن كعب - جميع الحقوق محفوظة</p>
-</footer>
-<!-- الخلفية الغامقة -->
-<div id="overlay" onclick="closeFormPopup()" style="
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 999;"></div>
-
-<!-- نافذة البوباب -->
-<div id="formPopup" style="
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 95%;
-  max-width: 550px;
-  height: 70%;
-  background-color: #fefefe;
-  border-radius: 12px;
-  overflow: hidden;
-  z-index: 1000;
-  box-shadow: 0 0 15px rgba(0,0,0,0.25);
-  direction: rtl;
-">
-
-  <!-- زر الإغلاق -->
-  <div style="text-align: left; padding: 8px 12px; background: #f2f2f2;">
-    <button onclick="closeFormPopup()" style="
-      font-size: 22px;
-      background: none;
-      border: none;
-      color: red;
-      cursor: pointer;">✖</button>
+    <div class="contact-item">
+      <span>📧</span>
+      <p><a href="mailto:abyy.mqraa@gmail.com">abyy.mqraa@gmail.com</a></p>
+    </div>
+    <div class="contact-item">
+      <span>📍</span>
+      <p>مسجد النور، السيدة زينب، القاهرة</p>
+    </div>
   </div>
+</section>
 
-  <!-- Google Form داخل iframe -->
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScPrOdIPrLEZPAmOR16_wdiE7LVBB6qdTlJVgKVMY39rzjdDg/viewform?embedded=true"
-    width="100%" height="100%" frameborder="0" style="border: none;">جارٍ التحميل…</iframe>
-</div>
-<script src="MO.JS/validate.js?v=1234"></script>
+<footer>
+  <p>© 2025 مقرأة أبيّ بن كعب - جميع الحقوق محفوظة</p>
+</footer>
+
+<script src="MO.JS/validate.js"></script>
+
 </body>
 </html>
