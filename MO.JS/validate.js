@@ -71,17 +71,6 @@ installBtn.addEventListener("click", () => {
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
     });
-function openPopup(src, name) {
-  document.getElementById("popup").style.display = "flex";
-  document.getElementById("popupImg").src = src;
-  document.getElementById("popupName").textContent = name;
-  document.body.style.overflow = "hidden"; // تمنع السكرول
-}
-
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-  document.body.style.overflow = "auto"; // ترجع السكرول بعد الإغلاق
-}
 
 const questions = [
     {
