@@ -1,23 +1,13 @@
-// ملف sw.js بدون كاش نهائيًا
-self.addEventListener("install", function (e) {
-  // تثبيت بدون كاش
-  self.skipWaiting();
+// sw.js
+
+// يمنع الكاش تمامًا ويجعل السويتش سريع
+self.addEventListener("install", () => self.skipWaiting());
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(self.clients.claim());
 });
 
-self.addEventListener("activate", function (e) {
-  // حذف كل الكاشات
-  e.waitUntil(
-    caches.keys().then(function (cacheNames) {
-      return Promise.all(
-        cacheNames.map(function (cache) {
-          return caches.delete(cache);
-        })
-      );
-    }).then(() => self.clients.claim())
-  );
-});
-
+// التعامل مع أي طلب بدون كاش
 self.addEventListener("fetch", function (e) {
-  // كل الطلبات تروح مباشرة للإنترنت
-  e.respondWith(fetch(e.request));
+  // مفيش كاش هنا، نسمح لكل الطلبات تروح للسيرفر مباشرة
 });
