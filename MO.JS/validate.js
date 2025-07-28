@@ -153,31 +153,32 @@ const questions = [
 
 
 let deferredPrompt;
-const installBtn = document.getElementById("installBtn");
-const popupInstallBtn = document.getElementById("popupInstallBtn");
-const closePopup = document.getElementById("closePopup");
-const popup = document.getElementById("installPopup");
+const installBtn = document.getElementById("installBtn"); // الزر الخارجي
 
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  installBtn.style.display = "block";
-  popup.classList.remove("hidden");
+  installBtn.style.display = "block"; // الزر الخارجي يظهر
 });
+
+installBtn.addEventListener("click", showInstallPrompt);
 
 function showInstallPrompt() {
   if (deferredPrompt) {
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === "accepted") {
+        console.log("👍 تمت إضافة الموقع");
+      } else {
+        console.log("❌ المستخدم رفض التثبيت");
+      }
       deferredPrompt = null;
-      popup.classList.add("hidden");
+      // إخفاء البوباب لو فيه
+      const popup = document.getElementById("installPopup");
+      if (popup) popup.classList.add("hidden");
     });
   }
 }
-
-installBtn.addEventListener("click", showInstallPrompt);
-popupInstallBtn.addEventListener("click", showInstallPrompt);
-closePopup.addEventListener("click", () => popup.classList.add("hidden"));
 
 
   
