@@ -515,3 +515,49 @@
     overflow-y: auto;
     height: auto;
   }
+.install-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 2px solid #0077cc;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.install-popup.hidden {
+  display: none;
+}
+
+.install-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.install-popup p {
+  margin: 0;
+  font-weight: bold;
+  color: #0077cc;
+}
+
+.install-popup button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.install-popup .close-btn {
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: auto;
+  color: #888;
+}
