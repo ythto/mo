@@ -153,37 +153,31 @@ const questions = [
 
 
 let deferredPrompt;
-const installPopup = document.getElementById("installPopup");
 const installBtn = document.getElementById("installBtn");
+const popupInstallBtn = document.getElementById("popupInstallBtn");
 const closePopup = document.getElementById("closePopup");
+const popup = document.getElementById("installPopup");
 
-// لما يظهر حدث beforeinstallprompt
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  // أظهر البوباب
-  installPopup.classList.remove("hidden");
+  installBtn.style.display = "block";
+  popup.classList.remove("hidden");
 });
 
-// زر التثبيت
-installBtn.addEventListener("click", () => {
+function showInstallPrompt() {
   if (deferredPrompt) {
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === "accepted") {
-        console.log("👍 تمت إضافة الموقع إلى الشاشة الرئيسية");
-      } else {
-        console.log("👎 المستخدم رفض الإضافة");
-      }
       deferredPrompt = null;
-      installPopup.classList.add("hidden");
+      popup.classList.add("hidden");
     });
   }
-});
+}
 
-// زر الإغلاق
-closePopup.addEventListener("click", () => {
-  installPopup.classList.add("hidden");
-});
+installBtn.addEventListener("click", showInstallPrompt);
+popupInstallBtn.addEventListener("click", showInstallPrompt);
+closePopup.addEventListener("click", () => popup.classList.add("hidden"));
+
 
   
