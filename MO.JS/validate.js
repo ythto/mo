@@ -152,39 +152,39 @@ const questions = [
   
 
 
-let deferredPrompt;
-const installPopup = document.getElementById("installPopup");
-const installBtn = document.getElementById("installBtn");
-const closePopup = document.getElementById("closePopup");
+// let deferredPrompt;
+// const installPopup = document.getElementById("installPopup");
+// const installBtn = document.getElementById("installBtn");
+// const closePopup = document.getElementById("closePopup");
 
-// لما يظهر حدث beforeinstallprompt
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  // أظهر البوباب
-  installPopup.classList.remove("hidden");
-});
+// // لما يظهر حدث beforeinstallprompt
+// window.addEventListener("beforeinstallprompt", (e) => {
+//   e.preventDefault();
+//   deferredPrompt = e;
+//   // أظهر البوباب
+//   installPopup.classList.remove("hidden");
+// });
 
-// زر التثبيت
-installBtn.addEventListener("click", () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === "accepted") {
-        console.log("👍 تمت إضافة الموقع إلى الشاشة الرئيسية");
-      } else {
-        console.log("👎 المستخدم رفض الإضافة");
-      }
-      deferredPrompt = null;
-      installPopup.classList.add("hidden");
-    });
-  }
-});
+// // زر التثبيت
+// installBtn.addEventListener("click", () => {
+//   if (deferredPrompt) {
+//     deferredPrompt.prompt();
+//     deferredPrompt.userChoice.then((choiceResult) => {
+//       if (choiceResult.outcome === "accepted") {
+//         console.log("👍 تمت إضافة الموقع إلى الشاشة الرئيسية");
+//       } else {
+//         console.log("👎 المستخدم رفض الإضافة");
+//       }
+//       deferredPrompt = null;
+//       installPopup.classList.add("hidden");
+//     });
+//   }
+// });
 
-// زر الإغلاق
-closePopup.addEventListener("click", () => {
-  installPopup.classList.add("hidden");
-});
+// // زر الإغلاق
+// closePopup.addEventListener("click", () => {
+//   installPopup.classList.add("hidden");
+// });
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
