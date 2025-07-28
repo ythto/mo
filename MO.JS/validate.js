@@ -3,74 +3,62 @@
       .then(() => console.log("✅ SW تم تسجيله"))
       .catch(err => console.log("❌ خطأ في SW:", err));
   }
-let deferredPrompt;
-const installBtn = document.getElementById("installBtn");
-
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  installBtn.style.display = "block";
-});
-
-installBtn.addEventListener("click", () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === "accepted") {
-        console.log("👍 تمت إضافة الموقع إلى الشاشة الرئيسية");
-      } else {
-        console.log("👎 المستخدم رفض الإضافة");
-      }
-      deferredPrompt = null;
-    });
-  }
-});
-
     // صور السلايدر
-  const images = [
-    "images/1.jpg",
-    "images/2.jpg",
-    "images/3.jpg",
-    "images/4.jpg"
-  ];
+const images = [
+  "images/1.jpg",
+  "images/2.jpg",
+  "images/3.jpg",
+  "images/4.jpg"
+];
 
-    let currentIndex = 0;
-    const imgElement = document.getElementById("carouselImage");
+let currentIndex = 0;
+const imgElement = document.getElementById("carouselImage");
 
-    function showImage(index) {
-      imgElement.style.opacity = 0;
-      setTimeout(() => {
-        imgElement.src = images[index];
-        imgElement.style.opacity = 1;
-      }, 300);
+function showImage(index) {
+  imgElement.style.opacity = 0;
+  setTimeout(() => {
+    imgElement.src = images[index];
+    imgElement.style.opacity = 1;
+  }, 300);
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+}
+
+// ✅ تحريك تلقائي كل 5 ثواني
+let autoSlide = setInterval(nextImage, 3000);
+
+// ⏸️ إيقاف المؤقت عند استخدام الزر (اختياري)
+document.querySelectorAll('.carousel-buttons button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(nextImage, 5000); // إعادة التشغيل
+  });
+});
+
+// ✨ Scroll animation
+const faders = document.querySelectorAll(".fade-in");
+
+const appearOnScroll = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
     }
+  });
+}, {
+  threshold: 0.3
+});
 
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      showImage(currentIndex);
-    }
-
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      showImage(currentIndex);
-    }
-
-    // scroll animation
-    const faders = document.querySelectorAll(".fade-in");
-
-    const appearOnScroll = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, {
-      threshold: 0.3
-    });
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});
 
 const questions = [
     {
@@ -161,4 +149,44 @@ const questions = [
   const item = encouragementTexts[random];
 
   box.innerHTML = `<strong>${item.type}:</strong> ${item.text}`;
+  
+
+
+let deferredPrompt;
+
+// نحفظ العناصر في متغيرات
+const popup = document.getElementById('installPopup');
+const installBtn = document.getElementById('installBtn');
+const closeBtn = document.getElementById('closePopup');
+
+// حدث عرض البوباب لما يكون التثبيت متاح
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  popup.classList.remove('hidden');
+});
+
+// حدث الضغط على زر التثبيت
+installBtn.addEventListener('click', () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('✅ المستخدم وافق على التثبيت');
+      } else {
+        console.log('❌ المستخدم رفض التثبيت');
+      }
+
+      deferredPrompt = null;
+      popup.classList.add('hidden');
+    });
+  }
+});
+
+// حدث الضغط على زر الإغلاق
+closeBtn.addEventListener('click', () => {
+  popup.classList.add('hidden');
+});
+
   
