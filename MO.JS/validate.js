@@ -185,5 +185,10 @@ installBtn.addEventListener("click", () => {
 closePopup.addEventListener("click", () => {
   installPopup.classList.add("hidden");
 });
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.hidden = false; // إظهاره بس لما المتصفح يسمح بالتثبيت
+});
 
   
