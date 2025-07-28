@@ -9,16 +9,19 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-<header>
-  <h1>📖 مقرأة أبيّ بن كعب</h1>
-  <nav>
-    <ul>
-      <li><a href="#about">عنّا</a></li>
-      <li><a href="#programs">البرامج</a></li>
-      <li><a href="#contact">تواصل</a></li>
-    </ul>
-  </nav>
+<header class="main-header">
+  <div class="container">
+    <h1 class="logo">📖 مقرأة أبيّ بن كعب</h1>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#about">عنّا</a></li>
+        <li><a href="#programs">البرامج</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
+
 <button id="installBtn" style="display: none;">📲 أضف الموقع إلى الشاشة الرئيسية</button>
 <!-- 🌀 Carousel دائري -->
 <div class="carousel">
@@ -203,6 +206,14 @@
     </div>
   </div>
 </section>
+
+<div id="installPopup" class="install-popup hidden">
+  <div class="install-content">
+    <p>📲 أضف الموقع إلى الشاشة الرئيسية للاستفادة بشكل أفضل!</p>
+    <button id="installBtn">تحميل التطبيق</button>
+    <span id="closePopup" class="close-btn">✖</span>
+  </div>
+</div>
 
 <footer>
   <p>© 2025 مقرأة أبيّ بن كعب - جميع الحقوق محفوظة</p>
