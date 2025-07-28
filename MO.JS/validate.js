@@ -153,32 +153,37 @@ const questions = [
 
 
 let deferredPrompt;
-const installBtn = document.getElementById("installBtn"); // الزر الخارجي
+const installPopup = document.getElementById("installPopup");
+const installBtn = document.getElementById("installBtn");
+const closePopup = document.getElementById("closePopup");
 
+// لما يظهر حدث beforeinstallprompt
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  installBtn.style.display = "block"; // الزر الخارجي يظهر
+  // أظهر البوباب
+  installPopup.classList.remove("hidden");
 });
 
-installBtn.addEventListener("click", showInstallPrompt);
-
-function showInstallPrompt() {
+// زر التثبيت
+installBtn.addEventListener("click", () => {
   if (deferredPrompt) {
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === "accepted") {
-        console.log("👍 تمت إضافة الموقع");
+        console.log("👍 تمت إضافة الموقع إلى الشاشة الرئيسية");
       } else {
-        console.log("❌ المستخدم رفض التثبيت");
+        console.log("👎 المستخدم رفض الإضافة");
       }
       deferredPrompt = null;
-      // إخفاء البوباب لو فيه
-      const popup = document.getElementById("installPopup");
-      if (popup) popup.classList.add("hidden");
+      installPopup.classList.add("hidden");
     });
   }
-}
+});
 
+// زر الإغلاق
+closePopup.addEventListener("click", () => {
+  installPopup.classList.add("hidden");
+});
 
   
