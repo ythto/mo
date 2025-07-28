@@ -22,7 +22,17 @@
   </div>
 </header>
 
-<button id="installBtn">📲 أضف الموقع إلى الشاشة الرئيسية</button>
+<!-- الزر الخارجي -->
+<button id="installBtn">📲 حمل التطبيق</button>
+
+<!-- البوباب -->
+<div id="installPopup" class="popup hidden">
+  <div class="popup-content">
+    <p>📱 أضف الموقع إلى الشاشة الرئيسية</p>
+    <button id="popupInstallBtn">📲 تثبيت</button>
+    <button id="closePopup">❌ إغلاق</button>
+  </div>
+</div>
 <!-- 🌀 Carousel دائري -->
 <div class="carousel">
   <img id="carouselImage" src="images/3.jpg" alt="سلايدر" />
@@ -32,13 +42,7 @@
   <button onclick="nextImage()">⏩</button>
 </div>
   
-<div id="installPopup" class="install-popup hidden">
-  <div class="install-content">
-    <p>📲 أضف الموقع إلى الشاشة الرئيسية للاستفادة بشكل أفضل!</p>
-    <button id="installBtn">تحميل التطبيق</button>
-    <span id="closePopup" class="close-btn">✖</span>
-  </div>
-</div>
+
   
 <section id="quran-virtue" class="fade-in">
   <h2 class="section-title">🌟 فضل تعلم القرآن الكريم</h2>
