@@ -56,14 +56,13 @@ nav a:hover {
   max-width: 360px;
   margin: 2rem auto;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 10%;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
   position: relative;
 }
 
 .carousel img {
   width: 100%;
-  border-radius: 50%;
   transition: all 0.5s ease-in-out;
 }
 
@@ -202,6 +201,7 @@ ul {
   font-weight: bold;
   color: #333;
 }
+
 
 .close-btn {
   position: absolute;
@@ -474,4 +474,9 @@ footer {
   margin: 0;
   font-weight: bold;
   color: #333;
+}
+body, html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
 }
