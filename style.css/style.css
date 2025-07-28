@@ -515,7 +515,15 @@
     overflow-y: auto;
     height: auto;
   }
-.install-popup {
+.butn{
+      top: 20px;
+    position: relative;
+    left: -16px;
+    border-radius: 20px;
+    padding: 6px;
+    border-color: tan;
+}
+/* .install-popup {
   position: fixed;
   bottom: 20px;
   left: 50%;
@@ -560,4 +568,4 @@
   font-size: 18px;
   margin-left: auto;
   color: #888;
-}
+} */
