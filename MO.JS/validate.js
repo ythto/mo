@@ -42,7 +42,33 @@ document.querySelectorAll('.carousel-buttons button').forEach(btn => {
     autoSlide = setInterval(nextImage, 5000); // إعادة التشغيل
   });
 });
+let startX = 0;
+let endX = 0;
 
+// نضيف أحداث اللمس إلى العنصر الذي يحتوي الصورة
+const carousel = document.querySelector('.carousel');
+
+carousel.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+carousel.addEventListener('touchend', (e) => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const deltaX = endX - startX;
+  if (Math.abs(deltaX) > 50) { // عشان نتأكد أنه سحب حقيقي مش لمسة بسيطة
+    if (deltaX > 0) {
+      prevImage(); // سحب يمين ← صورة سابقة
+    } else {
+      nextImage(); // سحب يسار ← صورة تالية
+    }
+    clearInterval(autoSlide);
+    autoSlide = setInterval(nextImage, 5000); // إعادة تشغيل السلايدر
+  }
+}
 // ✨ Scroll animation
 const faders = document.querySelectorAll(".fade-in");
 
@@ -185,10 +211,16 @@ const questions = [
 // closePopup.addEventListener("click", () => {
 //   installPopup.classList.add("hidden");
 // });
+
+  
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
   installBtn.hidden = false; // إظهاره بس لما المتصفح يسمح بالتثبيت
 });
-
-  
+// قناه اليوتيوب
+document.getElementById("moreVideosBtn").addEventListener("click", () => {
+  const youtubeSection = document.getElementById("youtubeChannel");
+  youtubeSection.style.display = "block";
+  youtubeSection.scrollIntoView({ behavior: "smooth" });
+});
