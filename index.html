@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>مقرأة أبيّ بن كعب</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css/style.css">
   <link rel="manifest" href="manifest.json">
 </head>
@@ -22,29 +23,16 @@
   </div>
 </header>
 
-<!-- الزر الخارجي -->
 <button id="installBtn" class="butn" >📲 أضف  إلى الهاتف </button>
-  
-
-<!-- البوباب -->
-<!-- <div id="installPopup" class="install-popup hidden">
-  <div class="install-content">
-    <p>📲 أضف الموقع إلى الشاشة الرئيسية للاستفادة بشكل أفضل!</p>
-    <button id="installBtn">تحميل التطبيق</button>
-    <span id="closePopup" class="close-btn">✖</span>
-  </div>
-</div> -->
 <!-- 🌀 Carousel دائري -->
 <div class="carousel">
   <img id="carouselImage" src="images/3.jpg" alt="سلايدر" />
 </div>
-<div class="carousel-buttons">
+<!-- <div class="carousel-buttons">
   <button onclick="prevImage()">⏪</button>
   <button onclick="nextImage()">⏩</button>
-</div>
-  
+</div> -->
 
-  
 <section id="quran-virtue" class="fade-in">
   <h2 class="section-title">🌟 فضل تعلم القرآن الكريم</h2>
   <div class="virtue-box">
@@ -155,8 +143,37 @@
       <div>3:30 م - 5:00 م</div>
     </div>
   </div>
+</section>
+  <section id="activity-videos" class="fade-in activity-videos">
+  <h2 class="section-title">🎥 فيديوهات الأنشطة</h2>
+  <div class="videos-grid">
+    
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID1" title="نشاط 1" allowfullscreen></iframe>
+      <h3>📌 نشاط يوم الجمعة - مسابقة الحفظ</h3>
+    </div>
 
-  
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID2" title="نشاط 2" allowfullscreen></iframe>
+      <h3>📌 لقاء أولياء الأمور مع الطلاب</h3>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID3" title="نشاط 3" allowfullscreen></iframe>
+      <h3>📌 توزيع الجوائز والتكريم</h3>
+    </div>
+
+  </div>
+
+  <!-- زر المزيد -->
+  <button id="moreVideosBtn" class="butn" style="margin-top: 30px;">🎬 شاهد المزيد</button>
+
+  <!-- قناة اليوتيوب المضمنة -->
+  <div id="youtubeChannel" class="youtube-embed hidden">
+    <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=CHANNEL_NAME" allowfullscreen></iframe>
+  </div>
+</section>
+
 <section>
   <h2 class="section-title">🎓 الطلاب المتفوقين</h2>
   <div class="honors-gallery">
@@ -204,23 +221,34 @@
 
 <section id="contact" class="contact-section fade-in">
   <h2>📬 تواصل معنا</h2>
-  <div class="contact-info">
-    <div class="contact-item">
-      <span>📞</span>
-      <p>واتساب: <a href="https://wa.me/201000000000" target="_blank">01000000000</a></p>
-    </div>
-    <div class="contact-item">
-      <span>📧</span>
-      <p><a href="mailto:abyy.mqraa@gmail.com">abyy.mqraa@gmail.com</a></p>
-    </div>
-    <div class="contact-item">
-      <span>📍</span>
-      <p>مسجد النور، السيدة زينب، القاهرة</p>
-    </div>
+  <div class="social-icons">
+    <a href="https://wa.me/201146436851" class="icon whatsapp" target="_blank" title="واتساب">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    </a>
+    <a href="https://facebook.com/yourpage" class="icon facebook" target="_blank" title="فيسبوك">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://youtube.com/yourchannel" class="icon youtube" target="_blank" title="يوتيوب">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <!-- <a href="mailto:abyy.mqraa@gmail.com" class="icon email" title="بريد إلكتروني">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://abyy-mqraa.com" class="icon website" target="_blank" title="الموقع الرسمي">
+      <i class="fas fa-globe"></i>
+    </a> -->
   </div>
 </section>
 
 
+<!-- <div id="installPopup" class="install-popup hidden">
+  <div class="install-content">
+    <p>📲 أضف الموقع إلى الشاشة الرئيسية للاستفادة بشكل أفضل!</p>
+    <button id="installBtn">تحميل التطبيق</button>
+    <span id="closePopup" class="close-btn">✖</span>
+  </div>
+</div> -->
 
 <footer>
   <p>© 2025 مقرأة أبيّ بن كعب - جميع الحقوق محفوظة</p>
