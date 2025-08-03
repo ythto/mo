@@ -1,8 +1,8 @@
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js')
-      .then(() => console.log("✅ SW تم تسجيله"))
-      .catch(err => console.log("❌ خطأ في SW:", err));
-  }
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+    .then(() => console.log("✅ Service Worker registered"))
+    .catch(err => console.error("❌ Service Worker error", err));
+}
     // صور السلايدر
 const images = [
   "images/1.jpg",
@@ -178,46 +178,33 @@ const questions = [
   
 
 
-// let deferredPrompt;
-// const installPopup = document.getElementById("installPopup");
-// const installBtn = document.getElementById("installBtn");
-// const closePopup = document.getElementById("closePopup");
+let deferredPrompt;
+const installBtn = document.getElementById("installBtn");
 
-// // لما يظهر حدث beforeinstallprompt
-// window.addEventListener("beforeinstallprompt", (e) => {
-//   e.preventDefault();
-//   deferredPrompt = e;
-//   // أظهر البوباب
-//   installPopup.classList.remove("hidden");
-// });
-
-// // زر التثبيت
-// installBtn.addEventListener("click", () => {
-//   if (deferredPrompt) {
-//     deferredPrompt.prompt();
-//     deferredPrompt.userChoice.then((choiceResult) => {
-//       if (choiceResult.outcome === "accepted") {
-//         console.log("👍 تمت إضافة الموقع إلى الشاشة الرئيسية");
-//       } else {
-//         console.log("👎 المستخدم رفض الإضافة");
-//       }
-//       deferredPrompt = null;
-//       installPopup.classList.add("hidden");
-//     });
-//   }
-// });
-
-// // زر الإغلاق
-// closePopup.addEventListener("click", () => {
-//   installPopup.classList.add("hidden");
-// });
-
-  
+// ✅ التعامل مع حدث beforeinstallprompt
 window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  installBtn.hidden = false; // إظهاره بس لما المتصفح يسمح بالتثبيت
+  e.preventDefault(); // منع البانر التلقائي
+  deferredPrompt = e; // تخزين الحدث لاستخدامه لاحقًا
+  installBtn.hidden = false; // إظهار الزر
 });
+
+// ✅ عند الضغط على زر التثبيت
+installBtn.addEventListener("click", async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt(); // إظهار نافذة التثبيت
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === "accepted") {
+      console.log("✅ تم التثبيت");
+    } else {
+      console.log("❌ تم رفض التثبيت");
+    }
+
+    deferredPrompt = null;
+    installBtn.hidden = true; // إخفاء الزر بعد المحاولة
+  }
+});
+
 // قناه اليوتيوب
 document.getElementById("moreVideosBtn").addEventListener("click", () => {
   const youtubeSection = document.getElementById("youtubeChannel");
