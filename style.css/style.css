@@ -175,19 +175,21 @@
 }
 
 .butn {
-  background-color: #3b82f6;
-  color: #fff;
+  background-color: #22c55e;
+  color: white;
   padding: 12px 25px;
   font-size: 16px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
   transition: background 0.3s ease;
+  display: none;
 }
 
 .butn:hover {
-  background-color: #2563eb;
+  background-color: #16a34a;
 }
+
 
 @keyframes fadeIn {
   from {opacity: 0;}
@@ -406,7 +408,6 @@
   .testimonial-text {
     text-align: right;
     flex: 1;
-    width: 100%;
   }
 
   .testimonial-text p {
