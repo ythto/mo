@@ -640,3 +640,14 @@
 .carousel img {
   transition: opacity 0.3s ease-in-out;
 }
+.install-button {
+  background-color: #00796b;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+  font-size: 1rem;
+}
