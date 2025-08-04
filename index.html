@@ -24,6 +24,16 @@
   </div>
 </header>
 
+<!-- اعلان -->
+<section id="weekly-event" class="weekly-event">
+  <div class="event-box">
+    <span class="icon">📢</span>
+    <div class="event-text">
+      <strong>✨ يوجد حلقة تجويد يوم الجمعة بعد المغرب في المسجد ✨</strong>
+    </div>
+  </div>
+</section>
+
 <button id="installBtn" class="butn" style="display: none; margin: 20px auto;">
   📲 أضف الموقع إلى الشاشة الرئيسية
 </button>
@@ -101,7 +111,7 @@
   </ul>
 </section>
 
-<section id="weekly-schedule" class="fade-in schedule-section visible">
+<!-- <section id="weekly-schedule" class="fade-in schedule-section visible">
   <h2 class="section-title">📅 الجدول الأسبوعي للمقرأة</h2>
   <div class="schedule-table">
     <div class="schedule-row schedule-header">
@@ -146,7 +156,7 @@
       <div>3:30 م - 5:00 م</div>
     </div>
   </div>
-</section>
+</section> -->
   <section id="activity-videos" class="fade-in activity-videos">
   <h2 class="section-title">🎥 فيديوهات الأنشطة</h2>
   <div class="videos-grid">
@@ -182,31 +192,65 @@
   </div>
 </section>
 
-<section>
-  <h2 class="section-title">🎓 الطلاب المتفوقين</h2>
-  <div class="honors-gallery">
-    <div class="student" >
-      <img src="images/kid1.jpg" alt="طالب">
-      <p>مازن علاء حسنين</p>
-    </div>
-    <div class="student" >
-      <img src="images/kid2.jpg" alt="طالب">
-      <p>محمد احمد لطفي</p>
-    </div>
-  </div>
+<section class="best-recitations">
+  <h2>🎙️ أفضل التلاوات هذا الأسبوع</h2>
+  <div class="recitations-grid">
 
+    <div class="recitation-card">
+      <video controls poster="">
+        <source src="videos/WhatsApp Video 2025-07-15 at 00.50.40_80981476.mp4" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو.
+      </video>
+      <p>🧒 الطالب: أحمد محمد</p>
+      <div class="stars">⭐️⭐️⭐️⭐️☆</div>
+    </div>
+
+    <div class="recitation-card">
+      <video controls poster="images/thumb2.jpg">
+        <source src="videos/omar.mp4" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو.
+      </video>
+      <p>🧒 الطالب: عمر خالد</p>
+      <div class="stars">⭐️⭐️⭐️☆☆</div>
+    </div>
+
+    <!-- أضف المزيد حسب الحاجة -->
+
+  </div>
 </section>
 
 <section class="honor-students">
-  <h2>🌟 الطلاب المميزون</h2>
+  <h2>🌟 الطلاب المجتهدين هذا الاسبوع</h2>
   <div class="students-grid">
+    
     <div class="student-card">
       <img src="images/ناصر المضروب.jpg" alt="ناصر">
-      <p>ناصر</p>
+      <p class="student-name">ناصر</p>
+      <div class="stars">
+        ★ ★ ★ ☆ ☆
+      </div>
     </div>
-    <!-- ضيف طلاب تانين بنفس الشكل -->
+
+    <div class="student-card">
+      <img src="images/kid1.jpg" alt="مازن علاء حسنين">
+      <p class="student-name">مازن علاء حسنين</p>
+      <div class="stars">
+        ★ ★ ★ ★ ☆
+      </div>
+      <span class="badge">🏅 الأكثر اجتهادًا</span>
+    </div>
+
+    <div class="student-card">
+      <img src="images/kid2.jpg" alt="محمد احمد لطفي">
+      <p class="student-name">محمد احمد لطفي</p>
+      <div class="stars">
+        ★ ★ ★ ★ ☆
+      </div>
+    </div>
+
   </div>
 </section>
+
 
 
 <section class="testimonials">
@@ -224,6 +268,14 @@
       <p>"ما شاء الله بالتوفيق يا مولانا"</p>
       <span>Magdy El Shiekj</span>
     </div>
+  </div>
+</section>
+
+<section class="closing-dua hidden" id="closingDua">
+  <div class="dua-card">
+    <p>
+      نسأل الله أن يرزقكم الإخلاص والقبول، ويجعل هذا العمل في ميزان حسناتكم، ويوفقكم في الدنيا والآخرة 🤲
+    </p>
   </div>
 </section>
 
@@ -248,15 +300,6 @@
     </a> -->
   </div>
 </section>
-
-
-<!-- <div id="installPopup" class="install-popup hidden">
-  <div class="install-content">
-    <p>📲 أضف الموقع إلى الشاشة الرئيسية للاستفادة بشكل أفضل!</p>
-    <button id="installBtn">تحميل التطبيق</button>
-    <span id="closePopup" class="close-btn">✖</span>
-  </div>
-</div> -->
 
 <footer>
   <p>© 2025 مقرأة أبيّ بن كعب - جميع الحقوق محفوظة</p>
