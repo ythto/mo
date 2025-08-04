@@ -272,56 +272,6 @@
 .icon.email    { color: #EA4335; }
 .icon.website  { color: #4CAF50; }
 
-  /* ========== معرض الطلاب ========== */
-  .honors-gallery {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .student {
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-  .student img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #007bff;
-    transition: transform 0.3s;
-  }
-
-  .student:hover img {
-    transform: scale(1.05);
-  }
-
-  .student p {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #333;
-  }
-
-
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-  }
-
-  /* Animation */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-
   /* ========== سؤال اليوم ========== */
   #daily-question {
     background-color: #f4fdfd;
@@ -408,6 +358,7 @@
   .testimonial-text {
     text-align: right;
     flex: 1;
+    width:100%;
   }
 
   .testimonial-text p {
@@ -487,7 +438,8 @@
       margin-bottom: 10px;
     }
   }
-  .schedule-section {
+  /* الجدول */
+  /* .schedule-section {
     margin: 50px auto;
     padding: 30px;
     max-width: 800px;
@@ -529,7 +481,7 @@
     border-bottom: 1px solid #eee;
     text-align: center;
     font-size: 16px;
-  }
+  } */
 
   .schedule-row:nth-child(even):not(.schedule-header) {
     background-color: #f9f9f9;
@@ -647,4 +599,283 @@
   margin: 20px auto;
   display: block;
   font-size: 1rem;
+}
+.event-banner {
+  background: #fff5e6;
+  border: 2px dashed #ffa726;
+  border-radius: 12px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  max-width: 600px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  animation: fadeSlideIn 0.6s ease-out;
+}
+/* قسم الحدث */
+.weekly-event {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  animation: fadeInSlide 1s ease-out;
+}
+
+.event-box {
+  background: linear-gradient(90deg, #ff6f00, #ffa726);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  animation: pulse 0.6s infinite alternate;
+}
+
+.event-box .icon {
+  font-size: 30px;
+}
+
+.event-text {
+  font-size: 16px;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.03);
+  }
+}
+/* المجتهدين هذا الاسبوع */
+.honor-students {
+  background: #fdf6e3;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.honor-students h2 {
+  font-size: 26px;
+  color: #ff9800;
+  margin-bottom: 30px;
+}
+
+.students-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.student-card {
+  background: #fff;
+  border-radius: 15px;
+  width: 160px;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  position: relative;
+  transition: transform 0.3s;
+  text-align: center;
+}
+
+.student-card:hover {
+  transform: translateY(-5px);
+}
+
+.student-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ffcc80;
+  margin-bottom: 10px;
+}
+
+.student-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.stars {
+  font-size: 18px;
+  color: #ffc107; /* النجوم المليانة */
+}
+
+.stars::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 5px;
+  background: #eee;
+}
+
+.stars:empty::before {
+  content: "☆ ☆ ☆ ☆ ☆";
+  color: #ccc;
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffeb3b;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+/* افضل التلاوات */
+.best-recitations {
+  background: #f0f8ff;
+  padding: 40px 20px;
+  border-top: 4px solid #00aaff;
+  text-align: center;
+}
+
+.best-recitations h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.recitations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.recitation-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  width: 90%;
+  max-width: 300px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.recitation-card:hover {
+  transform: scale(1.03);
+}
+
+.recitation-card video {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.recitation-card p {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.stars {
+  font-size: 1.3rem;
+  color: gold;
+}
+
+/* للموبايل */
+@media (max-width: 500px) {
+  .recitations-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recitation-card {
+    width: 95%;
+  }
+}
+/* دعوه ختاميه */
+.closing-dua {
+  background: linear-gradient(135deg, #f9fbe7, #fffde7);
+  padding: 50px 20px;
+  text-align: center;
+  transition: all 0.8s ease;
+}
+
+.dua-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 35px 25px;
+  max-width: 700px;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.dua-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 20%, transparent 80%);
+  animation: shine 5s infinite linear;
+  z-index: 0;
+}
+
+@keyframes shine {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dua-card p {
+  font-size: 1.3rem;
+  color: #333;
+  line-height: 1.9;
+  position: relative;
+  z-index: 1;
+}
+
+/* إخفاء أولاً */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* عند الظهور */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease;
+}
+
+/* موبايل */
+@media (max-width: 500px) {
+  .dua-card {
+    padding: 25px 20px;
+  }
+
+  .dua-card p {
+    font-size: 1.1rem;
+  }
 }
