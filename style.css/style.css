@@ -408,7 +408,6 @@
   .testimonial-text {
     text-align: right;
     flex: 1;
-    width:100%;
   }
 
   .testimonial-text p {
@@ -638,9 +637,6 @@
     padding: 6px;
     border-color: tan;
 }
-.carousel img {
-  transition: opacity 0.3s ease-in-out;
-}
 .install-button {
   background-color: #00796b;
   color: white;
@@ -652,4 +648,3 @@
   display: block;
   font-size: 1rem;
 }
-
