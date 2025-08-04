@@ -168,6 +168,43 @@ const questions = [
       text: "﴿نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ الْقَصَصِ﴾ [يوسف:3] — والقرآن مليء بالقصص لتعليم الأبناء القيم"
     }
   ];
+// افضل التلاوات 
+  const videos = document.querySelectorAll(".recitation-card video");
+
+  videos.forEach((video) => {
+    video.addEventListener("play", () => {
+      // وقف باقي الفيديوهات
+      videos.forEach((v) => {
+        if (v !== video) v.pause();
+      });
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    videos.forEach((video) => {
+      const rect = video.getBoundingClientRect();
+      const isVisible =
+        rect.top >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+
+      // لو خرج من الشاشة بالكامل يتقفل
+      if (!isVisible) {
+        video.pause();
+      }
+    });
+  });
+// دعوه ختاميه
+const duaSection = document.getElementById("closingDua");
+
+window.addEventListener("scroll", () => {
+  const sectionTop = duaSection.getBoundingClientRect().top;
+  const screenHeight = window.innerHeight;
+
+  if (sectionTop < screenHeight - 100) {
+    duaSection.classList.add("show");
+    duaSection.classList.remove("hidden");
+  }
+});
 
   // اختر عشوائي
   const random = Math.floor(Math.random() * encouragementTexts.length);
