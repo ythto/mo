@@ -408,6 +408,7 @@
   .testimonial-text {
     text-align: right;
     flex: 1;
+    width:100%;
   }
 
   .testimonial-text p {
@@ -651,3 +652,4 @@
   display: block;
   font-size: 1rem;
 }
+
