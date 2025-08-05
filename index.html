@@ -24,15 +24,21 @@
   </div>
 </header>
 
+<!-- شريط إشعار علوي -->
+<div id="topAlert" class="top-alert" onclick="scrollToVideo()">
+  🎧 فيديو مهم لازم تسمعو – اضغط هنا
+</div>
+
 <!-- اعلان -->
-<section id="weekly-event" class="weekly-event">
+<!-- <section id="weekly-event" class="weekly-event">
   <div class="event-box">
     <span class="icon">📢</span>
     <div class="event-text">
-      <strong>✨ يوجد حلقة تجويد يوم الجمعة بعد المغرب في المسجد ✨</strong>
+      <strong>  👋 مرحبًا بكم في موقعنا! يسعدنا انضمامكم إلى حلقة 📖 "أُبَيّ بن كعب" لتحفيظ القرآن الكريم.  
+  🌟 نسأل الله أن يجعل هذا العمل خالصًا لوجهه الكريم، وأن يبارك في أوقاتكم وقلوبكم.</strong>
     </div>
   </div>
-</section>
+</section> -->
 
 <button id="installBtn" class="butn" style="display: none; margin: 20px auto;">
   📲 أضف الموقع إلى الشاشة الرئيسية
@@ -157,38 +163,56 @@
     </div>
   </div>
 </section> -->
+
+<!-- محتوى الموقع -->
+<main>
+  <section id="importantVideo" class="important-video">
+    <h2>🎥 فيديو مهم لازم تسمعو</h2>
+
+    <div class="video-card">
+        <iframe 
+          src="https://www.youtube.com/embed/Gjxn0FxHVZg"
+          title="فيديو الحلقة"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          style="width: 100%; height: 230px; border-radius: 10px;">
+        </iframe>
+      <p class="video-caption">📌 هذه رسالة لأولياء الأمور آباء وأمهات والابناء رسالة لأهل القرآن جميعاً رجاء اسمعوها جيدا أسأل الله الاخلاص والقبول والتوفيق والسداد.</p>
+    </div>
+  </section>
+</main>
+
   <section id="activity-videos" class="fade-in activity-videos">
   <h2 class="section-title">🎥 فيديوهات الأنشطة</h2>
   <div class="videos-grid">
-    
     <div class="video-card">
-      <iframe 
-        src="https://www.youtube.com/embed/qg-kdynKwBA" 
-        title="نشاط 1" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
+        <iframe 
+          src="https://www.youtube.com/embed/qg-kdynKwBA"    
+          title="فيديو الحلقة"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          style="width: 100%; height: 230px; border-radius: 10px;">
+        </iframe>
       <h3>📌 يوم الجمعة</h3>
     </div>
 
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID2" title="نشاط 2" allowfullscreen></iframe>
-      <h3>📌 </h3>
-    </div>
+<div class="video-card">
+  <iframe src="https://www.youtube.com/embed/1XRJTyT7JL0"
+          title="نشاط 2"
+          allowfullscreen>
+  </iframe>
+  <h3>📌اداب الطعام </h3>
+</div>
 
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID3" title="نشاط 3" allowfullscreen></iframe>
-      <h3>📌</h3>
-    </div>
 
-  </div>
+<div class="video-card">
+  <iframe src="https://www.youtube.com/embed/weMoET5d4k8" 
+          title="نشاط 3" allowfullscreen></iframe>
+  <h3>📌 تصحيح تلاوة أوائل سورة نوح وتجويدها</h3>
+</div>
 
-  <!-- زر المزيد -->
-  <button id="moreVideosBtn" class="butn" style="margin-top: 30px;">🎬 شاهد المزيد</button>
-
-  <!-- قناة اليوتيوب المضمنة -->
-  <div id="youtubeChannel" class="youtube-embed hidden">
-    <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=CHANNEL_NAME" allowfullscreen></iframe>
   </div>
 </section>
 
@@ -201,7 +225,7 @@
         <source src="videos/WhatsApp Video 2025-07-15 at 00.50.40_80981476.mp4" type="video/mp4">
         متصفحك لا يدعم تشغيل الفيديو.
       </video>
-      <p>🧒 الطالب: أحمد محمد</p>
+      <p>🧒 الطالب:</p>
       <div class="stars">⭐️⭐️⭐️⭐️☆</div>
     </div>
 
@@ -210,7 +234,7 @@
         <source src="videos/omar.mp4" type="video/mp4">
         متصفحك لا يدعم تشغيل الفيديو.
       </video>
-      <p>🧒 الطالب: عمر خالد</p>
+      <p>🧒 الطالب:  </p>
       <div class="stars">⭐️⭐️⭐️☆☆</div>
     </div>
 
@@ -282,7 +306,7 @@
 <section id="contact" class="contact-section fade-in">
   <h2>📬 تواصل معنا</h2>
   <div class="social-icons">
-    <a href="https://wa.me/201146436851?text=السلام%20عليكم%20أرغب%20في%20الانضمام%20إلى%20المقرأة" class="icon whatsapp" target="_blank" title="واتساب">
+    <a href="https://wa.me/201556451729?text=السلام%20عليكم" class="icon whatsapp" target="_blank" title="واتساب">
       <i class="fab fa-whatsapp"></i>
     </a>
     </a>
