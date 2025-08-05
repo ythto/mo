@@ -241,10 +241,10 @@ installBtn.addEventListener("click", async () => {
     installBtn.hidden = true; // إخفاء الزر بعد المحاولة
   }
 });
-
-// قناه اليوتيوب
-document.getElementById("moreVideosBtn").addEventListener("click", () => {
-  const youtubeSection = document.getElementById("youtubeChannel");
-  youtubeSection.style.display = "block";
-  youtubeSection.scrollIntoView({ behavior: "smooth" });
-});
+// فيديو مهم 
+function scrollToVideo() {
+  const videoSection = document.getElementById("importantVideo");
+  if (videoSection) {
+    videoSection.scrollIntoView({ behavior: "smooth" });
+  }
+}
